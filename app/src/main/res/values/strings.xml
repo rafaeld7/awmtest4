@@ -2,5 +2,30 @@
     <string name="app_name">AWMTest4</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="texto_boton">Nombre</string>
+    <string name="tab_1">Inicio</string>
+    <string name="tab_2">Agregar</string>
+    <string name="tab_3">Usuario</string>
+    <string name="usuari">Usuario:</string>
+    <string name="correo">rafa@hotmail.com</string>
+    <string name="contacto">Contáctanos:</string>
+    <string name="contactocon">Conectar con:</string>
+    <string name="title_activity_editar">Editar Dispositivo</string>
+
+    <string-array name="funcionalidad">
+        <item>SELECCIONE</item>
+        <item>PORTON</item>
+        <item>ON-OFF</item>
+        <item>-</item>
+    </string-array>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
 </resources>

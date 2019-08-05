@@ -1,4 +1,4 @@
-package com.example.awmtest4;
+package com.AWM.awmtest4;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setUpView();
         setUpViewPagerAdapter();
+
+
     }
 
     private void setUpView(){
@@ -36,10 +38,11 @@ public class MainActivity extends AppCompatActivity {
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
     }
+
     private void setUpViewPagerAdapter() {
-        viewPagerAdapter.addfragment(new Opcion1Fragment(), "Home");
-        viewPagerAdapter.addfragment(new Opcion2Fragment(), "Agregar");
-        viewPagerAdapter.addfragment(new Opcion3Fragment(), "Usuario");
+        viewPagerAdapter.addfragment(new Opcion1Fragment(),  getString(R.string.tab_1));
+        viewPagerAdapter.addfragment(new Opcion2Fragment(), getString(R.string.tab_2));
+        viewPagerAdapter.addfragment(new Opcion3Fragment(), getString(R.string.tab_3));
         viewPager.setAdapter(viewPagerAdapter);
 
         tabLayout.setupWithViewPager(viewPager);
@@ -75,4 +78,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    /*public void editarActivity (){
+        Intent i = new Intent(this, editarActivity.class) ;
+        startActivity(i);
+    }*/
 }

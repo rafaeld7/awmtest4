@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources>
+
+    <string name="app_name">AWMTest4</string>
+    <string name="texto_boton">Name</string>
+    <string name="tab_1">Home</string>
+    <string name="tab_2">ADD</string>
+    <string name="tab_3">User</string>
+    <string name="usuari">User:</string>
+    <string name="correo">rafa@hotmail.com</string>
+    <string name="contacto">Contact Us:</string>
+    <string name="contactocon">Connect with:</string>
+    <string name="title_activity_editar">Edit Device</string>
+</resources>

@@ -1,4 +1,4 @@
-package com.example.awmtest4;
+package com.AWM.awmtest4;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
