@@ -36,10 +36,6 @@ public class Opcion3Fragment extends Fragment {
         ImageButton face = view.findViewById(R.id.btnFace);
         ImageButton awm = view.findViewById(R.id.btnAWM);
         Button btnLocator =view.findViewById(R.id.btnLocator);
-       // WebView webView = view.findViewById(R.id.webView);
-
-
-       // webView.loadUrl("http://awm.do");
 
         btnLocator.setOnClickListener(new View.OnClickListener() {
             @Override

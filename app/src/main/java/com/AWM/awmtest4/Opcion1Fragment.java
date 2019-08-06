@@ -40,13 +40,13 @@ public class Opcion1Fragment extends Fragment {
 
         misDispositivos = new ArrayList<>();
 
-//        try {
-//            btnNombre.setText(new ObtenerNombre().execute().get().substring(13).replaceAll("[\"|}]",""));
-//        } catch (ExecutionException e) {
-//            e.printStackTrace();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+       /* try {
+            btnNombre.setText(new ObtenerNombre().execute().get().substring(13).replaceAll("[\"|}]",""));
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
 
         toggleButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.AWM.awmtest4.Mqtt.MqttActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -72,6 +73,7 @@ public class Opcion2Fragment extends Fragment {
             protected void onPreExecute() {
                 ipBar = view.findViewById(R.id.ipBar);
                 ipBar.setVisibility(View.VISIBLE);
+                Toast.makeText(getContext(), "Buscando Dispositvos...", Toast.LENGTH_LONG).show();
                 super.onPreExecute();
 
             }
