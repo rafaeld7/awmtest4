@@ -22,7 +22,7 @@ import java.util.ArrayList;
  */
 public class Opcion1Fragment extends Fragment {
 
-    public static ArrayList<Dispositivo> misDispositivos;
+    public static ArrayList<Dispositivo> misDispositivos;    //Lista de todos los dispositivos
     public Opcion1Fragment() {
         // Required empty public constructor
     }
@@ -40,7 +40,10 @@ public class Opcion1Fragment extends Fragment {
 
         misDispositivos = new ArrayList<>();
 
-       /* try {
+
+       /* Fragmento de codigo que consigue el nombre del sonoff y lo situa en el boton(solo de forma local)
+
+       try {
             btnNombre.setText(new ObtenerNombre().execute().get().substring(13).replaceAll("[\"|}]",""));
         } catch (ExecutionException e) {
             e.printStackTrace();
@@ -54,8 +57,13 @@ public class Opcion1Fragment extends Fragment {
 
             /*Funcion para boton on/off */
             public void onClick(View view) {
-//                MQTT cliente = new MQTT("cmnd/sonoff/power","3");
-//                cliente.publishMssg();
+               /* Fragmento de codigo que publica un mensaje de blink por medio de MQTT
+
+                MQTT cliente = new MQTT("cmnd/sonoff/power","3");
+                cliente.publishMssg();
+                */
+
+               //Esta parte hace lo mismo pero por medio de una peticion http  (solo funciona de forma local)
                 new GetTaskDone().execute();
                 toggleButton.postDelayed(new Runnable() {
                     @Override

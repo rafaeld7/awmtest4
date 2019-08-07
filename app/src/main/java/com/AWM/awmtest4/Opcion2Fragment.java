@@ -37,11 +37,13 @@ public class Opcion2Fragment extends Fragment {
 
     private ProgressBar ipBar;
     private ArrayList<String> ips = new ArrayList<>();
-    DhcpInfo d;
+
+    DhcpInfo d;           //Parametros para obtener informacion de wifi al escanear
     WifiManager wifi;
     String ip_Add;
     String red;
-    DispDatabaseAdapter dispDatabaseAdapter;
+
+    DispDatabaseAdapter dispDatabaseAdapter; // Adaptador para poder utilizar la Base de Datos local (SQLite)
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,7 +62,7 @@ public class Opcion2Fragment extends Fragment {
         Button btnBD = view.findViewById(R.id.btnBD);
         final TextView txtBD = view.findViewById(R.id.txtBD);
 
-
+        /*Fragmento de codigo que obtiene la ip que tiene el movil actualmente conectada y calcula su subred para el escaneo de dispositivos sonoff*/
         wifi= (WifiManager) getActivity().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         d=wifi.getDhcpInfo();
         ip_Add= intToIp(d.ipAddress);
@@ -71,6 +73,8 @@ public class Opcion2Fragment extends Fragment {
 
             @Override
             protected void onPreExecute() {
+                /*Codigo que se ejecuta antes de iniciar el escaneo. Hace visible la barra de progreso y presenta un texto de buscando dispositivos.*/
+
                 ipBar = view.findViewById(R.id.ipBar);
                 ipBar.setVisibility(View.VISIBLE);
                 Toast.makeText(getContext(), "Buscando Dispositvos...", Toast.LENGTH_LONG).show();
@@ -79,12 +83,14 @@ public class Opcion2Fragment extends Fragment {
             }
 
             protected String doInBackground(Void... params) {
+                /*Codigo que escanea la red local para encontrar dispositivos sonoff con tasmota*/
                 StringBuilder sb=null;
                 BufferedReader reader=null;
                 String serverResponse=null;
 
                 String ip = "";
                 System.out.println(red);
+                /*Dependiendo de la subred del movil se toma el rango para buscar dispositivos*/
                 if(red.startsWith("10")){
                     ip = "10.0.0.";
                 }else if (red.startsWith("192.168.")){
@@ -119,7 +125,7 @@ public class Opcion2Fragment extends Fragment {
                         connection.disconnect();
                         if(sb!=null && statusCode == 200) {
                             serverResponse = sb.toString();
-                            if(serverResponse.startsWith("{\"Module\"")){
+                            if(serverResponse.startsWith("{\"Module\"")){    // Si la respuesta a la peticion empieza con {Module se asume que el dispositivo es el que buscamos.
                                ips.add("10.0.0."+i);
                             }
 
@@ -143,9 +149,12 @@ public class Opcion2Fragment extends Fragment {
             }
             @Override
             protected void onPostExecute(String result) {
+                /*Luego de terminar el scan se ejecuta esto para poner invisible la barra de progreso y para introducir el dispositivo a la lista y a la base de
+                * datos*/
                 ipBar.setVisibility(View.INVISIBLE);
                 //System.out.println(result);
                 for(String ip: ips){
+                    /*Este codigo se ejecuta en un for por si existe la posibilidad de mas de un dispositivo en la subred*/
                     System.out.println(ip);
                     txtIP.setText(ip);
                     Opcion1Fragment.misDispositivos.add(new Dispositivo(ip,"AA-AA-AA-AA", "sonoff","cmnd/sonoff/power"));
@@ -168,6 +177,7 @@ public class Opcion2Fragment extends Fragment {
         btnIP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /*Se ejecuta el codigo EncontrarDisp que se encuentra en la clase anidada superior*/
                 System.out.println(new EncontrarDisp().execute());
             }
         });
@@ -175,7 +185,8 @@ public class Opcion2Fragment extends Fragment {
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                /*Luego de haber encontrado un dispositivo asumiendo que este esta en la posicion 0 de la lista
+                * se publica un mensaje blink al mismo*/
                 MQTT cliente = new MQTT(Opcion1Fragment.misDispositivos.get(0).getTopicMQTT(),"3");
                 cliente.publishMssg();
             }

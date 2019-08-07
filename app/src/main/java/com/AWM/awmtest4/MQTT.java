@@ -23,6 +23,10 @@ public class MQTT {
         this.mensaje=mensaje;
     }
 
+/*Metodo del cliente MQTT para publicar un mensaje. Se conecta al servidor con su url.  */
+
+
+
     public void publishMssg(){
         try {
             myClient = new MqttClient(MQTT_BROKER_URL,CLIENT_ID,persistence);
@@ -40,6 +44,7 @@ public class MQTT {
             System.out.println("Message published");
             myClient.disconnect();
             myClient.close();
+
         } catch (MqttException e) {
             e.printStackTrace();
         }

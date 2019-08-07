@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/*Clase que hace una peticion http al sonoff para obtener su nombre. Se conecta al sonoff y lee la respuesta al comando hostname. (Solo de forma local)*/
 class ObtenerNombre extends AsyncTask<Void, Void, String> {
 
     @Override

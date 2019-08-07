@@ -1,5 +1,7 @@
 package com.AWM.awmtest4;
 
+/*Clase dispositivo la cual tiene todos los parametros que puede tener un sonoff incluyendo su topico para publicar en MQTT*/
+
 public class Dispositivo {
     private String ip;
     private String macAdd;
