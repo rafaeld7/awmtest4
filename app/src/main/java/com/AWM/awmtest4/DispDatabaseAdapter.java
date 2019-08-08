@@ -23,8 +23,8 @@ public class DispDatabaseAdapter {
     public static final int NAME_COLUMN = 1;
     // TODO: Create public field for each column in your table.
     // SQL Statement to create a new database.
-    static final String DATABASE_CREATE = "create table REGISTRO( ID integer primary key autoincrement,NOMBRE  text,IP  text,MACADD text,TOPICMQTT text); ";
-    static final String DATABASE_CREATE_Usuario = "create table REGISTRO_USUARIO( NOMBRE  text,ID_USUARIO text primary key, CORREO text,CONTRASENA text,TELEFONO text,IDCONFIGURACION text,MISDISPOSITIVOS text); ";
+    static final String DATABASE_CREATE = "create table REGISTRO( ID integer primary key autoincrement,NOMBRE  text,IP  text,MACADD text,TOPICMQTT text,IDCONFIGURACION text); ";
+    static final String DATABASE_CREATE_Usuario = "create table REGISTRO_USUARIO( NOMBRE  text,ID_USUARIO text primary key, CORREO text,CONTRASENA text,TELEFONO text,MISDISPOSITIVOS text); ";
 
     // Variable to hold the database instance
     public static SQLiteDatabase db;

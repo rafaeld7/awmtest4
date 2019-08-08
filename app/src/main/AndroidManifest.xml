@@ -19,17 +19,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Registro"></activity>
+        <activity android:name=".Login" />
+        <activity android:name=".BotonesActivity" />
+        <activity android:name=".WiFiScannerActivity" />
+        <activity android:name=".Mqtt.MqttActivity" />
         <activity
-            android:name="com.AWM.awmtest4.ui.login.LoginActivity"
-            android:label="@string/title_activity_login"></activity>
-        <activity android:name="com.AWM.awmtest4.BotonesActivity" />
-        <activity android:name="com.AWM.awmtest4.WiFiScannerActivity" />
-        <activity android:name="com.AWM.awmtest4.Mqtt.MqttActivity" />
-        <activity
-            android:name="com.AWM.awmtest4.editarActivity"
+            android:name=".editarActivity"
             android:label="@string/title_activity_editar"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.AWM.awmtest4.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,7 +38,7 @@
 
         <service android:name="org.eclipse.paho.android.service.MqttService" />
         <service
-            android:name="com.AWM.awmtest4.Mqtt.MqttMessageService"
+            android:name=".Mqtt.MqttMessageService"
             android:enabled="true"
             android:exported="false" />
     </application>

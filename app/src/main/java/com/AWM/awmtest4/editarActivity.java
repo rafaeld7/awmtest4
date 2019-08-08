@@ -17,7 +17,7 @@ public class editarActivity extends AppCompatActivity {
         DispDatabaseAdapter d = new DispDatabaseAdapter(getApplicationContext());
         d = d.open();
        String str= d.getSinlgeEntry("sonoff");
-        Opcion1Fragment.misDispositivos.add(new Dispositivo(str,"AA-AA-AA-AA", "sonoff","cmnd/sonoff/power"));
+        Opcion1Fragment.misDispositivos.add(new Dispositivo(str,"AA-AA-AA-AA", "sonoff","cmnd/sonoff/power",""));
         TextView txtNombre = findViewById(R.id.editTextname);
 
 

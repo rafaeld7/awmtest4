@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ToggleButton;
 
-import com.AWM.awmtest4.ui.login.LoginActivity;
 
 import java.util.ArrayList;
 
@@ -97,7 +96,7 @@ public class Opcion1Fragment extends Fragment {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), LoginActivity.class);
+                Intent i = new Intent(getActivity(),Login.class);
                 startActivity(i);
             }
         });

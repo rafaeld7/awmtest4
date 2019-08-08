@@ -30,7 +30,10 @@ public class Opcion3Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        /**/
         View view = inflater.inflate(R.layout.fragment_opcion3, container, false);
+
+
         ImageButton insta = view.findViewById(R.id.btnInsta);
         ImageButton twit = view.findViewById(R.id.btnTwit);
         ImageButton face = view.findViewById(R.id.btnFace);

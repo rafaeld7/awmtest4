@@ -214,6 +214,8 @@ public class Opcion2Fragment extends Fragment {
 
             @Override
             public void onClick(View view) {
+                /*Codigo para iniciar una nueva actividad en un boton*/
+
                 Intent i = new Intent(getActivity(), MqttActivity.class);
                 startActivity(i);
             }

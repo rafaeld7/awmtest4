@@ -5,6 +5,7 @@
 
     <string name="app_name">AWMTest4</string>
     <string name="texto_boton">Name</string>
+    <string name="nombre">Name:</string>
     <string name="tab_1">Home</string>
     <string name="tab_2">ADD</string>
     <string name="tab_3">User</string>
@@ -13,4 +14,14 @@
     <string name="contacto">Contact Us:</string>
     <string name="contactocon">Connect with:</string>
     <string name="title_activity_editar">Edit Device</string>
+    <string name="Correo_inicio">E-mail:</string>
+    <string name="Correo_usuario">E-mail</string>
+    <string name="Contrasena">Password:</string>
+    <string name="Contrasena1">Password</string>
+    <string name="Inicio_Sesion">Sign In</string>
+    <string name="Registrar">Register</string>
+    <string name="celular">Phone:</string>
+    <string name="cancelar">Cancel</string>
+    <string name="Telefono1">000-000-0000</string>
+    <string name="Guardar">Save</string>
 </resources>
