@@ -29,6 +29,10 @@ import android.widget.Toast;
 
 import java.util.List;
 
+/*Clase que hace un scan de las redes WiFi disponnibles, las presenta en forma de lista y al tocar una de ellas permite conectarse a la misma.
+* Esto funciona para el primer paso de configuracion de un dispositivo*/
+
+
 public class WiFiScannerActivity extends AppCompatActivity{
 
     WifiManager mainWifiObj;

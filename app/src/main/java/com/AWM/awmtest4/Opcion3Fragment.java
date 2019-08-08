@@ -35,15 +35,22 @@ public class Opcion3Fragment extends Fragment {
         ImageButton twit = view.findViewById(R.id.btnTwit);
         ImageButton face = view.findViewById(R.id.btnFace);
         ImageButton awm = view.findViewById(R.id.btnAWM);
-        Button btnLocator =view.findViewById(R.id.btnLocator);
+        //Button btnLocator =view.findViewById(R.id.btnLocator);
 
-        btnLocator.setOnClickListener(new View.OnClickListener() {
+       /*
+       Codigo que ejecuta el localizador web de tasmota en el navegador. Se comenta ya que se implemento una solucion similar en EncontrarDisp
+
+       btnLocator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Intent.ACTION_VIEW,Uri.parse("http://tasmota.simplethings.work/?"));
                 startActivity(i);
             }
         });
+*/
+
+       /*Codigo que ejecuta la pagina de la empresa en las redes sociales instagram, twitter y facebook en sus respectivas aplicacion si
+       *estan instaladas en el movil de lo contrario se abre en el navegador*/
 
         insta.setOnClickListener(new View.OnClickListener() {
             @Override

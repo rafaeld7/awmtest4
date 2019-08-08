@@ -63,6 +63,7 @@ public class Opcion2Fragment extends Fragment {
         final TextView txtBD = view.findViewById(R.id.txtBD);
 
         /*Fragmento de codigo que obtiene la ip que tiene el movil actualmente conectada y calcula su subred para el escaneo de dispositivos sonoff*/
+
         wifi= (WifiManager) getActivity().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         d=wifi.getDhcpInfo();
         ip_Add= intToIp(d.ipAddress);
@@ -73,6 +74,7 @@ public class Opcion2Fragment extends Fragment {
 
             @Override
             protected void onPreExecute() {
+
                 /*Codigo que se ejecuta antes de iniciar el escaneo. Hace visible la barra de progreso y presenta un texto de buscando dispositivos.*/
 
                 ipBar = view.findViewById(R.id.ipBar);
@@ -83,14 +85,18 @@ public class Opcion2Fragment extends Fragment {
             }
 
             protected String doInBackground(Void... params) {
+
                 /*Codigo que escanea la red local para encontrar dispositivos sonoff con tasmota*/
+
                 StringBuilder sb=null;
                 BufferedReader reader=null;
                 String serverResponse=null;
 
                 String ip = "";
                 System.out.println(red);
+
                 /*Dependiendo de la subred del movil se toma el rango para buscar dispositivos*/
+
                 if(red.startsWith("10")){
                     ip = "10.0.0.";
                 }else if (red.startsWith("192.168.")){
@@ -125,7 +131,8 @@ public class Opcion2Fragment extends Fragment {
                         connection.disconnect();
                         if(sb!=null && statusCode == 200) {
                             serverResponse = sb.toString();
-                            if(serverResponse.startsWith("{\"Module\"")){    // Si la respuesta a la peticion empieza con {Module se asume que el dispositivo es el que buscamos.
+                            if(serverResponse.startsWith("{\"Module\"")){
+                                /* Si la respuesta a la peticion empieza con {Module se asume que el dispositivo es el que buscamos.*/
                                ips.add("10.0.0."+i);
                             }
 
@@ -149,15 +156,19 @@ public class Opcion2Fragment extends Fragment {
             }
             @Override
             protected void onPostExecute(String result) {
+
                 /*Luego de terminar el scan se ejecuta esto para poner invisible la barra de progreso y para introducir el dispositivo a la lista y a la base de
                 * datos*/
+
                 ipBar.setVisibility(View.INVISIBLE);
                 //System.out.println(result);
                 for(String ip: ips){
-                    /*Este codigo se ejecuta en un for por si existe la posibilidad de mas de un dispositivo en la subred*/
+
+                    /*Este codigo se ejecuta en un bucle por si existe la posibilidad de mas de un dispositivo en la subred*/
+
                     System.out.println(ip);
                     txtIP.setText(ip);
-                    Opcion1Fragment.misDispositivos.add(new Dispositivo(ip,"AA-AA-AA-AA", "sonoff","cmnd/sonoff/power"));
+                    Opcion1Fragment.misDispositivos.add(new Dispositivo(ip,"AA-AA-AA-AA", "sonoff","cmnd/sonoff/power",""));
                     //dispDatabaseAdapter.insertEntry("1" ,"sonoff",ip , "AA-AA-AA-AA","cmnd/sonoff/power");
                 }
                 super.onPostExecute(result);
@@ -177,7 +188,9 @@ public class Opcion2Fragment extends Fragment {
         btnIP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 /*Se ejecuta el codigo EncontrarDisp que se encuentra en la clase anidada superior*/
+
                 System.out.println(new EncontrarDisp().execute());
             }
         });
@@ -185,14 +198,20 @@ public class Opcion2Fragment extends Fragment {
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 /*Luego de haber encontrado un dispositivo asumiendo que este esta en la posicion 0 de la lista
                 * se publica un mensaje blink al mismo*/
+
                 MQTT cliente = new MQTT(Opcion1Fragment.misDispositivos.get(0).getTopicMQTT(),"3");
                 cliente.publishMssg();
             }
         });
 
         button.setOnClickListener(new View.OnClickListener() {
+
+            /*Este codigo inicia una activada mqtt donde se puede especificar todos los parametros de conexion para conectarse a un broker, publicar y suscribirse
+            * a un topico */
+
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(), MqttActivity.class);
@@ -201,6 +220,9 @@ public class Opcion2Fragment extends Fragment {
         });
 
         btnAgregar.setOnClickListener(new View.OnClickListener() {
+
+            /*Actividad para escanear las redes wifi para encontrar un dispositivo a configurar nuevo (En sus primeros pasos)*/
+
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(),WiFiScannerActivity.class);
@@ -209,6 +231,9 @@ public class Opcion2Fragment extends Fragment {
         });
 
         btnBD.setOnClickListener(new View.OnClickListener() {
+
+            /*Codigo para mostrar una entrada de la base de datos donde el nombre de dispositivo sea sonoff*/
+
             @Override
             public void onClick(View view) {
                 txtBD.setText(dispDatabaseAdapter.getSinlgeEntry("sonoff"));
@@ -219,12 +244,11 @@ public class Opcion2Fragment extends Fragment {
     }
 
     public String intToIp(int i) {
+        /*Codigo para convertir la ip que s eencuentra conectado el movil de entero a formato (X.X.X.X) */
+
 
         return ( i & 0xFF) + "." + ((i >> 8 ) & 0xFF) + "." + ((i >> 16 ) & 0xFF) +"." + ((i >> 24 ) & 0xFF ) ;
-//        return ((i >> 24 ) & 0xFF ) + "." +
-//                ((i >> 16 ) & 0xFF) + "." +
-//                ((i >> 8 ) & 0xFF) + "." +
-//                ( i & 0xFF) ;
+
     }
 
 

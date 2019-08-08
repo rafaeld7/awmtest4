@@ -61,6 +61,8 @@ public class Opcion1Fragment extends Fragment {
 
                 MQTT cliente = new MQTT("cmnd/sonoff/power","3");
                 cliente.publishMssg();
+
+                 "cmnd/sonoff/IRSEND"    Comando para enviar informacion por infrarojo
                 */
 
                //Esta parte hace lo mismo pero por medio de una peticion http  (solo funciona de forma local)

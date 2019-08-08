@@ -1,5 +1,11 @@
 package com.AWM.awmtest4;
 
+
+
+
+/*Esta clase crea inicialmente la base de datos y actualiza la version en caso de ser necesario*/
+
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -15,6 +21,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase _db) {
         try {
             _db.execSQL(DispDatabaseAdapter.DATABASE_CREATE);
+            _db.execSQL(DispDatabaseAdapter.DATABASE_CREATE_Usuario);
         }catch(Exception er){
             Log.e("Error","exceptioin");
         }
