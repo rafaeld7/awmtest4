@@ -100,7 +100,6 @@ public class DispDatabaseAdapter {
             ContentValues newValues = new ContentValues();
             // Assign values for each column.
             newValues.put("NOMBRE", nombre);
-            newValues.put("ID_USUARIO", id);
             newValues.put("CORREO", correo);
             newValues.put("CONTRASENA", contrasena);
             newValues.put("TELEFONO", telefono);
@@ -128,9 +127,9 @@ public class DispDatabaseAdapter {
 
     /*Dado el ID de un usuario lo elimina de la tabla de registro*/
 
-    public int deleteEntryUsuario(String idUsuario) {
-        String where="ID_USUARIO=?";
-        int numberOFEntriesDeleted= db.delete("REGISTRO_USUARIO", where, new String[]{idUsuario}) ;
+    public int deleteEntryUsuario(String correo) {
+        String where="correo=?";
+        int numberOFEntriesDeleted= db.delete("REGISTRO_USUARIO", where, new String[]{correo}) ;
         Toast.makeText(context, "Number fo Entry Deleted Successfully : "+numberOFEntriesDeleted, Toast.LENGTH_LONG).show();
         return numberOFEntriesDeleted;
     }
@@ -154,7 +153,7 @@ public class DispDatabaseAdapter {
     public String getSinlgeEntryUsuario(String idUsuario) {
 
         db=dbHelper.getReadableDatabase();
-        Cursor cursor=db.query("REGISTRO_USUARIO", null, "ID_USUARIO=?", new String[]{idUsuario}, null, null, null);
+        Cursor cursor=db.query("REGISTRO_USUARIO", null, "correo=?", new String[]{idUsuario}, null, null, null);
         if(cursor.getCount()<1) // UserName Not Exist
             return "NOT EXIST";
         cursor.moveToFirst();
@@ -181,12 +180,11 @@ public class DispDatabaseAdapter {
         ContentValues updatedValues = new ContentValues();
         // Assign values for each Column.
         updatedValues.put("NOMBRE", Nombre);
-        updatedValues.put("ID_USUARIO", ID);
         updatedValues.put("CORREO", Correo);
         updatedValues.put("CONTRASENA", Contrasena);
         updatedValues.put("TELEFONO", Telefono);
 
-        String where="ID_USUARIO = ?";
+        String where="correo = ?";
         db.update("REGISTRO_USUARIO",updatedValues, where, new String[]{ID});
     }
 }

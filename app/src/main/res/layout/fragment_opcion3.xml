@@ -8,6 +8,24 @@
     tools:context=".Opcion3Fragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <ImageButton
+        android:id="@+id/btnIFTTT"
+        android:layout_width="179dp"
+        android:layout_height="121dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="?android:attr/panelBackground"
+        android:src="@drawable/ic_ifttt2"
+        android:tint="?android:attr/panelBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.203"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.313" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="62dp"

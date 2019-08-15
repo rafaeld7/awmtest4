@@ -5,15 +5,13 @@ import java.util.Objects;
 
 public class Usuario {
      private String nombre;
-     private String idUsuario;
      private String correo;
      private String contrasena;
      private String telefono;
      private ArrayList<Dispositivo> misDispositivos;
 
-    public Usuario(String nombre, String idUsuario, String correo, String contrasena, String telefono, ArrayList<Dispositivo> misDispositivos) {
+    public Usuario(String nombre, String correo, String contrasena, String telefono, ArrayList<Dispositivo> misDispositivos) {
         this.nombre = nombre;
-        this.idUsuario = idUsuario;
         this.correo = correo;
         this.contrasena = contrasena;
         this.telefono = telefono;
@@ -25,8 +23,7 @@ public class Usuario {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario = (Usuario) o;
-        return Objects.equals(nombre, usuario.nombre) &&
-                Objects.equals(idUsuario, usuario.idUsuario) &&
+        return  Objects.equals(nombre, usuario.nombre) &&
                 Objects.equals(correo, usuario.correo) &&
                 Objects.equals(contrasena, usuario.contrasena) &&
                 Objects.equals(telefono, usuario.telefono) &&
@@ -35,7 +32,7 @@ public class Usuario {
 
     @Override
     public int hashCode() {
-        return Objects.hash(nombre, idUsuario, correo, contrasena, telefono, misDispositivos);
+        return Objects.hash(nombre, correo, contrasena, telefono, misDispositivos);
     }
 
     public ArrayList<Dispositivo> getMisDispositivos() {
@@ -52,14 +49,6 @@ public class Usuario {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(String idUsuario) {
-        this.idUsuario = idUsuario;
     }
 
     public String getCorreo() {

@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,8 +80,13 @@ public class Opcion2Fragment extends Fragment {
 
                 ipBar = view.findViewById(R.id.ipBar);
                 ipBar.setVisibility(View.VISIBLE);
-                Toast.makeText(getContext(), "Buscando Dispositvos...", Toast.LENGTH_LONG).show();
-                super.onPreExecute();
+              //  Toast.makeText(getContext(), "Buscando Dispositvos..." ,Toast.LENGTH_LONG).show();
+               // Toast.(Gravity.CENTER, 5, 5); // last two args are X and Y are used for setting position
+
+                Toast.makeText(getContext(), "Esto puede tardar varios minutos ", Toast.LENGTH_LONG).show();
+
+
+              super.onPreExecute();
 
             }
 

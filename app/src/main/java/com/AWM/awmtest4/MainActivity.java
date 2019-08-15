@@ -5,6 +5,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.google.android.material.appbar.AppBarLayout;
@@ -18,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private ViewPagerAdapter viewPagerAdapter;
 
-
+//    EditText etcorreo, etcontrasena;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
 
     private void setUpView(){
         imageView = findViewById(R.id.imageView);
@@ -79,8 +84,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    /*public void editarActivity (){
-        Intent i = new Intent(this, editarActivity.class) ;
-        startActivity(i);
-    }*/
+   
 }
