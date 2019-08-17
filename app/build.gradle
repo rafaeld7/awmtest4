@@ -1,10 +1,11 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'  // Google Play services Gradle plugin
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
     defaultConfig {
-        applicationId "com.example.awmtest4"
+        applicationId "com.AWM.awmtest4"
         minSdkVersion 22
         targetSdkVersion 29
         versionCode 1
@@ -37,8 +38,11 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.1'
-    implementation 'com.android.volley:volley:1.1.1'
-    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
-
+    implementation  'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.1'
+    implementation  'com.android.volley:volley:1.1.1'
+    implementation  'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+    implementation  'com.google.firebase:firebase-core:16.0.8'
+    implementation  'com.google.firebase:firebase-auth:18.0.0'
+    implementation  'com.google.firebase:firebase-database:16.1.0'
 }
+

@@ -38,10 +38,10 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
 
         //Registro en la Base de Dastos
 
-        etnombre = findViewById(R.id.txtnombre_usuario);
+       // etnombre = findViewById(R.id.txtnombre_usuario);
         etcorreo = findViewById(R.id.txtcorreo);
         etcontrasena = findViewById(R.id.txtcontrasena);
-        ettelefono = findViewById(R.id.txttelefono);
+       // ettelefono = findViewById(R.id.txttelefono);
       //boton guardar
         btn_guardar = findViewById(R.id.btn_guardar);
         btn_guardar.setOnClickListener(this);
