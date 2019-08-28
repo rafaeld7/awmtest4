@@ -83,7 +83,7 @@ public class Opcion2Fragment extends Fragment {
               //  Toast.makeText(getContext(), "Buscando Dispositvos..." ,Toast.LENGTH_LONG).show();
                // Toast.(Gravity.CENTER, 5, 5); // last two args are X and Y are used for setting position
 
-                Toast.makeText(getContext(), "Esto puede tardar varios minutos ", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Escaneando la Red. Por favor, espere... ", Toast.LENGTH_LONG).show();
 
 
               super.onPreExecute();

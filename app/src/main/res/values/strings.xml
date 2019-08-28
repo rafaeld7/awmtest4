@@ -24,15 +24,15 @@
     <string name="Guardar">Registrar Usuario</string>
 
 
-
-
-
     <string-array name="funcionalidad">
         <item>SELECCIONE</item>
         <item>PORTON</item>
         <item>ON-OFF</item>
         <item>-</item>
     </string-array>
+    <string name="title_activity_registro_firebase2">RegistroFirebase2Activity</string>
+    <string name="title_activity_firebase_auth">FirebaseAuth</string>
+    <string name="title_activity_email_password">EmailPassword</string>
 
 
 </resources>

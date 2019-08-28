@@ -1,24 +1,28 @@
 package com.AWM.awmtest4;
 
-import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-
-public class RegistroFirebase extends AppCompatActivity implements View.OnClickListener {
+public class RegistroFirebase2Activity extends AppCompatActivity implements View.OnClickListener {
 
     //Registro de usuario
     private EditText TextEmail;
@@ -26,15 +30,12 @@ public class RegistroFirebase extends AppCompatActivity implements View.OnClickL
     private Button btnRegistrar;
     private FirebaseAuth mAuth;
     private ProgressDialog progressDialog;
-   // private Button btn_cancelar;
+    // private Button btn_cancelar;
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
-        //chequear
-        setContentView(R.layout.activity_registro);
+        setContentView(R.layout.activity_registro_firebase2);
 
         //Cancelar
         final Button btn_cancelar = (Button) findViewById(R.id.btn_cancelar);
@@ -45,13 +46,13 @@ public class RegistroFirebase extends AppCompatActivity implements View.OnClickL
             }
         });
 
-//prueba
+
 
         //Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         //Referenciamos los views
-        TextEmail = (EditText) findViewById(R.id.txtcorreo);
-        TextPassword = (EditText) findViewById(R.id.textPassword);
+       TextEmail = (EditText)findViewById(R.id.txtcorreo);
+       TextPassword = (EditText)findViewById(R.id.textPassword);
 
         btnRegistrar = (Button) findViewById(R.id.btn_guardar);
         progressDialog = new ProgressDialog(this);
@@ -60,16 +61,13 @@ public class RegistroFirebase extends AppCompatActivity implements View.OnClickL
         //FIN de resgitro
 
 
-}
+    }
 
-
+//
     private  void registrarUsuario(){
-        //Obtenemos el Email y la contrasena desde las cajas de textos
-        String email = TextEmail.getText().toString().trim();
-        String password = TextPassword.getText().toString().trim();
-
-
-
+        //Obtenemos el Email y la contrasena desde las cajas de texto
+         String email = TextEmail.getText().toString().trim();
+         String password = TextPassword.getText().toString().trim();
 
         //verificamos que las cajas de texto no esten vacias
 
@@ -93,10 +91,10 @@ public class RegistroFirebase extends AppCompatActivity implements View.OnClickL
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         // Sign in success, update UI with the signed-in user's information
                         if (task.isSuccessful())
-                            Toast.makeText(RegistroFirebase.this, "Se ha registrado el Email", Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegistroFirebase2Activity.this, "Se ha registrado el Email", Toast.LENGTH_LONG).show();
                         else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(RegistroFirebase.this,"No se pudo registrar el Usuario",Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegistroFirebase2Activity.this,"No se pudo registrar el Usuario",Toast.LENGTH_LONG).show();
 
                         }
                         progressDialog.dismiss();
@@ -106,9 +104,10 @@ public class RegistroFirebase extends AppCompatActivity implements View.OnClickL
 
     }
 
-
     @Override
     public void onClick(View view) {
+
         registrarUsuario();
+
     }
 }

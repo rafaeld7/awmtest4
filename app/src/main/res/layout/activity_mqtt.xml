@@ -19,7 +19,7 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.241"
+        app:layout_constraintHorizontal_bias="0.23"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.189" />
@@ -185,8 +185,8 @@
 
     <TextView
         android:id="@+id/subscribedMsg"
-        android:layout_width="234dp"
-        android:layout_height="64dp"
+        android:layout_width="334dp"
+        android:layout_height="77dp"
         android:layout_marginStart="8dp"
 
         android:layout_marginTop="8dp"
@@ -195,7 +195,7 @@
         android:hint="messages"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.26"
+        app:layout_constraintHorizontal_bias="0.344"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.987" />

@@ -38,7 +38,9 @@ public class Opcion3Fragment extends Fragment {
         ImageButton twit = view.findViewById(R.id.btnTwit);
         ImageButton face = view.findViewById(R.id.btnFace);
         ImageButton awm = view.findViewById(R.id.btnAWM);
-        //Button btnLocator =view.findViewById(R.id.btnLocator);
+        ImageButton trackruptela = view.findViewById(R.id.btnruptela);
+        ImageButton iftt = view.findViewById(R.id.btnIFTTT);
+        ImageButton tracksolid = view.findViewById(R.id.btntracksolid);
 
        /*
        Codigo que ejecuta el localizador web de tasmota en el navegador. Se comenta ya que se implemento una solucion similar en EncontrarDisp
@@ -94,6 +96,30 @@ public class Opcion3Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://awm.do"));
+                startActivity(intent);
+            }
+        });
+
+        trackruptela.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://track2.ruptela.com/login"));
+                startActivity(intent);
+            }
+        });
+
+        iftt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://ifttt.com/login"));
+                startActivity(intent);
+            }
+        });
+
+        tracksolid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.tracksolid.com/mainFrame"));
                 startActivity(intent);
             }
         });

@@ -56,11 +56,11 @@ public class Opcion1Fragment extends Fragment {
 
             /*Funcion para boton on/off */
             public void onClick(View view) {
-               /* Fragmento de codigo que publica un mensaje de blink por medio de MQTT
+               // Fragmento de codigo que publica un mensaje de blink por medio de MQTT
 
-                MQTT cliente = new MQTT("cmnd/sonoff/power","3");
+                /*MQTT cliente = new MQTT("cmnd/sonoff/power","3");
                 cliente.publishMssg();
-
+/*
                  "cmnd/sonoff/IRSEND"    Comando para enviar informacion por infrarojo
                 */
 
